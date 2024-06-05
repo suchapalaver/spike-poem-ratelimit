@@ -1,0 +1,22 @@
+[package]
+name = "spike-poem-ratelimit"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "spike_poem_ratelimit"
+path = "src/lib.rs"
+
+[dependencies]
+poem-ratelimit = { git = "https://github.com/suchapalaver/poem-ratelimit.git" }
+tokio = { version = "1.17", features = ["rt-multi-thread"] }
+redis = { version = "0.25.4", features = ["tokio-comp", "connection-manager"] }
+poem = "3.0.1"
+serde_yaml = "0.9.34"
+anyhow = "1.0.86"
+
+[dev-dependencies]
+pretty_env_logger = "0.5.0"
+reqwest = "0.12.4"
+testcontainers = "0.17.0"
+testcontainers-modules = { version = "0.5.0", features = ["redis"] }
